@@ -4,7 +4,9 @@
       <div class="text-h5">ライブ</div>
       <v-card class="mt-2">
         <v-card-title
-          >望郷東京2021〜春旅selection<v-spacer></v-spacer
+          ><nuxt-link to="live/20210403-bokyotokyo"
+            >望郷東京2021〜春旅selection</nuxt-link
+          ><v-spacer></v-spacer
           ><v-chip color="primary">
             <v-avatar left><v-icon>mdi-account-circle</v-icon></v-avatar
             >配信あり</v-chip
@@ -24,7 +26,11 @@
       </v-card>
 
       <v-card class="mt-2">
-        <v-card-title>荒川わたれ〜2021 in 熊谷 </v-card-title>
+        <v-card-title>
+          <nuxt-link to="live/20210505-arakawawatare">
+            荒川わたれ〜2021 in 熊谷</nuxt-link
+          ></v-card-title
+        >
         <v-card-subtitle>2021/05/05(水・祝) 16:00</v-card-subtitle>
         <v-card-actions>
           <v-btn href="https://eplus.jp/gug/" target="_blank" color="primary"
