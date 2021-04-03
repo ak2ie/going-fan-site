@@ -4,7 +4,7 @@
       <div class="text-h5">ライブ</div>
       <v-card class="mt-2">
         <v-card-title
-          ><nuxt-link to="live/20210403-bokyotokyo"
+          ><nuxt-link to="live/20210403-bokyotokyo" class="info--text"
             >望郷東京2021〜春旅selection</nuxt-link
           ><v-spacer></v-spacer
           ><v-chip color="primary">
@@ -27,7 +27,7 @@
 
       <v-card class="mt-2">
         <v-card-title>
-          <nuxt-link to="live/20210505-arakawawatare">
+          <nuxt-link to="live/20210505-arakawawatare" class="info--text">
             荒川わたれ〜2021 in 熊谷</nuxt-link
           ></v-card-title
         >
