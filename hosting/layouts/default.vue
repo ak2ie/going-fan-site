@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer v-model="drawer" temporary bottom absolute right>
+    <v-navigation-drawer v-model="drawer" right app bottom>
       <v-list>
         <v-list-item v-for="(item, i) in items" :key="i">
           <v-list-item-icon>
@@ -15,7 +15,9 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" fixed app>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
+      <nuxt-link to="/" class="text-decoration-none white--text"
+        ><v-toolbar-title v-text="title"></v-toolbar-title
+      ></nuxt-link>
       <span class="text-subtitle-2 ml-5 d-none d-md-inline"
         >GOING UNDER GROUND 非公式ファンサイト</span
       >
@@ -47,6 +49,11 @@ export default {
           icon: 'mdi-account-multiple',
           title: 'メンバー',
           to: '/member',
+        },
+        {
+          icon: 'mdi-waveform',
+          title: 'ライブ',
+          to: '/lives',
         },
         // {
         //   icon: 'mdi-information',

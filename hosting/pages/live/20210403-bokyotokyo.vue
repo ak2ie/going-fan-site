@@ -34,10 +34,107 @@
           >
         </div>
       </div>
+
+      <h5 class="text-h5 mt-4"><v-icon>mdi-music</v-icon> セットリスト</h5>
+      <v-simple-table class="mt-3">
+        <template v-slot:default>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>曲名</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(music, index) in setlist" :key="index">
+              <td>{{ music.no }}</td>
+              <td>{{ music.title }}</td>
+              <td>{{ music.comment }}</td>
+            </tr>
+          </tbody>
+        </template>
+      </v-simple-table>
     </v-col>
   </v-row>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      setlist: [
+        {
+          no: '1',
+          title: '桜が咲いたら',
+          comment: '',
+        },
+        {
+          no: '2',
+          title: 'アゲハ',
+          comment: '',
+        },
+        {
+          no: '3',
+          title: 'アロー',
+          comment: '',
+        },
+        {
+          no: '4',
+          title: '望郷東京2020',
+          comment: '',
+        },
+        {
+          no: '5',
+          title: '口笛どろぼう',
+          comment: '',
+        },
+        {
+          no: '6',
+          title: 'Teenage last',
+          comment: '',
+        },
+        {
+          no: '7',
+          title: '潮騒',
+          comment: '新曲',
+        },
+        {
+          no: '8',
+          title: 'ムーンダンス',
+          comment: '新曲',
+        },
+        {
+          no: '9',
+          title: '南十字',
+          comment: '',
+        },
+        {
+          no: '10',
+          title: 'STAND BY ME',
+          comment: '',
+        },
+        {
+          no: '11',
+          title: 'いつまでたっても',
+          comment: '',
+        },
+        {
+          no: '12',
+          title: 'グラフィティー',
+          comment: '',
+        },
+        {
+          no: 'en1',
+          title: 'きもち',
+          comment: '新曲',
+        },
+        {
+          no: 'en2',
+          title: 'ハミングライフ',
+          comment: '',
+        },
+      ],
+    }
+  },
+}
 </script>

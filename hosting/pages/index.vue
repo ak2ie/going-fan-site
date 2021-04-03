@@ -3,41 +3,51 @@
     <v-col cols="12" md="8" offset-md="2">
       <div class="text-h5">ライブ</div>
       <v-card class="mt-2">
-        <v-card-title
-          ><nuxt-link to="live/20210403-bokyotokyo" class="info--text"
-            >望郷東京2021〜春旅selection</nuxt-link
-          ><v-spacer></v-spacer
-          ><v-chip color="primary">
-            <v-avatar left><v-icon>mdi-account-circle</v-icon></v-avatar
-            >配信あり</v-chip
+        <v-card-title>
+          <nuxt-link to="live/20210505-arakawawatare" class="info--text">
+            荒川わたれ〜2021 in 熊谷</nuxt-link
           ></v-card-title
         >
-        <v-card-subtitle>2021/04/03(土) 14:00 / 16:30</v-card-subtitle>
+        <v-card-subtitle
+          >2021/05/05（水・祝） 16:00 @熊谷八木橋デパート</v-card-subtitle
+        >
+        <v-card-text class="text-subtitle-1">
+          メンバーの地元埼玉凱旋ライブ
+        </v-card-text>
         <v-card-actions>
+          <v-spacer></v-spacer>
           <v-btn href="https://eplus.jp/gug/" target="_blank" color="primary"
             >会場チケット</v-btn
-          ><v-btn
-            href="https://eplus.jp/st-gug/"
-            target="_blank"
-            color="success"
-            >配信チケット</v-btn
           >
         </v-card-actions>
       </v-card>
 
       <v-card class="mt-2">
         <v-card-title>
-          <nuxt-link to="live/20210505-arakawawatare" class="info--text">
-            荒川わたれ〜2021 in 熊谷</nuxt-link
+          <nuxt-link to="live/20210626-withyou15th" class="info--text">
+            "with YOU"15th anniversary LIVE!</nuxt-link
           ></v-card-title
         >
-        <v-card-subtitle>2021/05/05(水・祝) 16:00</v-card-subtitle>
+        <v-card-subtitle
+          >2021/06/26(土) 14:00 / 16:30 @下北沢SHELTER</v-card-subtitle
+        >
+        <v-card-text class="text-subtitle-1">
+          初のベストアルバム「GOING UNDER GROUND with
+          YOU」（2006年6月）リリース15周年記念ライブ
+        </v-card-text>
         <v-card-actions>
-          <v-btn href="https://eplus.jp/gug/" target="_blank" color="primary"
-            >会場チケット</v-btn
+          <v-spacer></v-spacer>
+          <v-btn
+            href="https://goingunderground.tokyo/contents/417170"
+            target="_blank"
+            color="error"
+            >ファンクラブ先行チケット</v-btn
           >
         </v-card-actions>
       </v-card>
+      <div class="mt-3">
+        <router-link to="/lives" class="info--text">過去のライブ</router-link>
+      </div>
     </v-col>
 
     <v-col cols="12" md="8" offset-md="2">
