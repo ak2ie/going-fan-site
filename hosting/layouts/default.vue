@@ -4,7 +4,7 @@
       <v-list>
         <v-list-item v-for="(item, i) in items" :key="i">
           <v-list-item-icon>
-            <v-icon v-text="item.icon"></v-icon>
+            <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
             <nuxt-link :to="item.to" class="white--text text-decoration-none"
@@ -22,7 +22,7 @@
         >GOING UNDER GROUND 非公式ファンサイト</span
       >
       <v-spacer></v-spacer>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-icon @click.stop="drawer = !drawer">{{ icon.mdiMenu }}</v-icon>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -33,25 +33,28 @@
 </template>
 
 <script>
+import { mdiApps, mdiAccountMultiple, mdiWaveform, mdiMenu } from '@mdi/js'
+
 export default {
   data() {
     return {
+      icon: { mdiMenu },
       clipped: false,
       drawer: false,
       fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
+          icon: mdiApps,
           title: 'Home',
           to: '/',
         },
         {
-          icon: 'mdi-account-multiple',
+          icon: mdiAccountMultiple,
           title: 'メンバー',
           to: '/member',
         },
         {
-          icon: 'mdi-waveform',
+          icon: mdiWaveform,
           title: 'ライブ',
           to: '/lives',
         },
@@ -77,5 +80,10 @@ export default {
    * ------------------------------------------------- */
   /* https://www.toptal.com/designers/subtlepatterns/dark-sharp-edges/ */
   background: repeat url('/footer_lodyas.png');
+
+  font-family: 'Open Sans';
+}
+
+.application {
 }
 </style>

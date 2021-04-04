@@ -4,14 +4,14 @@
       <div class="text-h4">"with YOU"15th anniversary LIVE!</div>
 
       <div class="text-h5 mt-5">
-        <v-icon>mdi-clock</v-icon> 開催日時：2021/06/26（土）
+        <v-icon>{{ icon.mdiClock }}</v-icon> 開催日時：2021/06/26（土）
       </div>
       <div class="ml-9 mt-3">
         <div>1回目： 開場 13:30 / 開演 14:00</div>
         <div>2回目： 開場 16:00 / 開演 16:30</div>
       </div>
       <div class="text-h5 mt-5">
-        <v-icon>mdi-map-marker</v-icon> 場所：下北沢SHELTER
+        <v-icon>{{ icon.mdiMapMarker }}</v-icon> 場所：下北沢SHELTER
       </div>
       <div class="ml-9 mt-3">
         <div>
@@ -29,13 +29,16 @@
         </div>
       </div>
 
-      <h5 class="text-h5 mt-4"><v-icon>mdi-music</v-icon> 収録曲一覧</h5>
-      <v-simple-table class="mt-3">
+      <h5 class="text-h5 mt-4">
+        <v-icon>{{ icon.mdiMusic }}</v-icon> 収録曲一覧
+      </h5>
+      <v-simple-table class="mt-3" dense>
         <template v-slot:default>
           <thead>
             <tr>
               <th>#</th>
               <th>曲名</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -43,13 +46,14 @@
               <td>{{ music.no }}</td>
               <td>
                 {{ music.title }}
-
+              </td>
+              <td>
                 <a
                   v-if="music.youtube"
                   :href="music.youtube"
                   target="_blank"
                   class="pl-3 text-decoration-none"
-                  ><v-icon>mdi-youtube</v-icon></a
+                  ><v-icon>{{ icon.mdiYoutube }}</v-icon></a
                 >
               </td>
             </tr>
@@ -61,9 +65,12 @@
 </template>
 
 <script>
+import { mdiClock, mdiMapMarker, mdiMusic, mdiYoutube } from '@mdi/js'
+
 export default {
   data() {
     return {
+      icon: { mdiClock, mdiMapMarker, mdiMusic, mdiYoutube },
       musics: [
         {
           no: '01',

@@ -4,7 +4,10 @@
       <div class="text-h5">ライブ</div>
       <v-card class="mt-2">
         <v-card-title>
-          <nuxt-link to="live/20210505-arakawawatare" class="info--text">
+          <nuxt-link
+            to="live/20210505-arakawawatare"
+            class="info--text font-weight-bold"
+          >
             荒川わたれ〜2021 in 熊谷</nuxt-link
           ></v-card-title
         >
@@ -24,7 +27,10 @@
 
       <v-card class="mt-2">
         <v-card-title>
-          <nuxt-link to="live/20210626-withyou15th" class="info--text">
+          <nuxt-link
+            to="live/20210626-withyou15th"
+            class="info--text font-weight-bold"
+          >
             "with YOU"15th anniversary LIVE!</nuxt-link
           ></v-card-title
         >
@@ -60,7 +66,7 @@
     <v-col cols="12" md="8" offset-md="2">
       <div class="text-h5">SNS</div>
       <div class="text">
-        <v-icon>mdi-twitter</v-icon
+        <v-icon>{{ icon.mdiTwitter }}</v-icon
         ><a href="https://twitter.com/going_twilight" target="_blank"
           >@going_twilight</a
         >
@@ -70,13 +76,13 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
+import { mdiTwitter } from '@mdi/js'
 
 export default {
-  components: {
-    Logo,
-    VuetifyLogo,
+  data() {
+    return {
+      icon: { mdiTwitter },
+    }
   },
 }
 </script>
