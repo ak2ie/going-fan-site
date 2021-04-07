@@ -95,8 +95,26 @@
 import { mdiTwitter, mdiMonitorCellphone, mdiAccountMultiple } from '@mdi/js'
 import Vue from 'vue'
 
+export type Live = {
+  title: String
+  dateDisplay: String
+  date: Date
+  place: String
+  comment: String
+  actor: String
+  ticketUrl: String
+  fanclubTicketUrl: String
+  detailPagePath: String
+  isStreaming: boolean
+}
+
+export type DataType = {
+  icon: any
+  lives: Array<Live>
+}
+
 export default Vue.extend({
-  data() {
+  data(): DataType {
     return {
       icon: { mdiTwitter, mdiMonitorCellphone, mdiAccountMultiple },
       lives: [
@@ -156,11 +174,11 @@ export default Vue.extend({
     /**
      * 今後のライブリスト
      */
-    futureLives() {
-      const compare = (x, y) => x.date.getTime() - y.date.getTime()
+    futureLives(): Array<Live> {
+      const compare = (x: Live, y: Live) => x.date.getTime() - y.date.getTime()
       // 今日以降のライブを降順に並び替え
       return this.lives
-        .filter((live) => {
+        .filter((live: Live) => {
           return live.date.getTime() >= new Date().getTime()
         })
         .sort(compare)
