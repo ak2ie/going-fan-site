@@ -2,51 +2,67 @@
   <v-row>
     <v-col cols="12" md="8" offset-md="2">
       <div class="text-h5">ライブ</div>
-      <v-card class="mt-2">
+      <v-card class="mt-2" v-for="(live, index) in futureLives" :key="index">
         <v-card-title>
           <nuxt-link
-            to="live/20210505-arakawawatare"
+            :to="live.detailPagePath"
             class="info--text font-weight-bold"
+            v-if="live.detailPagePath"
           >
-            荒川わたれ〜2021 in 熊谷</nuxt-link
-          ></v-card-title
-        >
+            {{ live.title }}</nuxt-link
+          >
+          <span v-else>
+            {{ live.title }}
+          </span>
+          <!-- <v-spacer
+            v-if="live.isStreaming || live.actor !== 'GOING'"
+          ></v-spacer> -->
+          <v-chip
+            class="ma-2"
+            color="indigo"
+            text-color="white"
+            v-if="live.isStreaming"
+          >
+            <v-icon left>{{ icon.mdiMonitorCellphone }}</v-icon>
+            配信あり
+          </v-chip>
+          <v-chip
+            class="ma-2"
+            color="indigo"
+            text-color="white"
+            v-if="live.actor !== 'GOING'"
+          >
+            <v-icon left>{{ icon.mdiAccountMultiple }}</v-icon>
+            {{ live.actor }}
+          </v-chip>
+        </v-card-title>
         <v-card-subtitle
-          >2021/05/05（水・祝） 16:00 @熊谷八木橋デパート</v-card-subtitle
+          >{{ live.dateDisplay }} @{{ live.place }}</v-card-subtitle
         >
         <v-card-text class="text-subtitle-1">
-          メンバーの地元埼玉凱旋ライブ
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn href="https://eplus.jp/gug/" target="_blank" color="primary"
-            >会場チケット</v-btn
-          >
-        </v-card-actions>
-      </v-card>
-
-      <v-card class="mt-2">
-        <v-card-title>
-          <nuxt-link
-            to="live/20210626-withyou15th"
-            class="info--text font-weight-bold"
-          >
-            "with YOU"15th anniversary LIVE!</nuxt-link
-          ></v-card-title
-        >
-        <v-card-subtitle
-          >2021/06/26(土) 14:00 / 16:30 @下北沢SHELTER</v-card-subtitle
-        >
-        <v-card-text class="text-subtitle-1">
-          初のベストアルバム「GOING UNDER GROUND with
-          YOU」（2006年6月）リリース15周年記念ライブ
+          {{ live.comment }}
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
-            href="https://goingunderground.tokyo/contents/417170"
+            :href="live.ticketUrl"
+            target="_blank"
+            color="primary"
+            v-if="live.ticketUrl"
+            >会場チケット</v-btn
+          >
+          <v-btn
+            :href="live.streamingUrl"
+            target="_blank"
+            color="primary"
+            v-if="live.streamingUrl"
+            >配信チケット</v-btn
+          >
+          <v-btn
+            :href="live.fanclubTicketUrl"
             target="_blank"
             color="error"
+            v-if="live.fanclubTicketUrl"
             >ファンクラブ先行チケット</v-btn
           >
         </v-card-actions>
@@ -75,14 +91,80 @@
   </v-row>
 </template>
 
-<script>
-import { mdiTwitter } from '@mdi/js'
+<script lang="ts">
+import { mdiTwitter, mdiMonitorCellphone, mdiAccountMultiple } from '@mdi/js'
+import Vue from 'vue'
 
-export default {
+export default Vue.extend({
   data() {
     return {
-      icon: { mdiTwitter },
+      icon: { mdiTwitter, mdiMonitorCellphone, mdiAccountMultiple },
+      lives: [
+        {
+          title: '荒川わたれ～2021 in 熊谷',
+          dateDisplay: '2021/05/05（水・祝） 16:00',
+          date: new Date(2021, 4, 5),
+          place: '熊谷八木橋デパート',
+          comment: 'メンバーの地元埼玉凱旋ライブ',
+          actor: 'GOING',
+          ticketUrl: 'https://eplus.jp/gug/',
+          fanclubTicketUrl: '',
+          detailPagePath: 'live/20210505-arakawawatare',
+          isStreaming: false,
+        },
+        {
+          title: '"with YOU"15th anniversary LIVE!',
+          dateDisplay: '2021/06/26(土) 14:00 / 16:30',
+          date: new Date(2021, 5, 26),
+          place: '下北沢SHELTER',
+          comment: 'メンバーの地元埼玉凱旋ライブ',
+          actor: 'GOING',
+          ticketUrl: '',
+          fanclubTicketUrl: 'https://goingunderground.tokyo/contents/417170',
+          detailPagePath: 'live/20210626-withyou15th',
+          isStreaming: false,
+        },
+        {
+          title: 'クリトリック・リスとナカザタロウ 春の2マン',
+          dateDisplay: '2021/04/10(土) 16:00',
+          date: new Date(2021, 3, 10),
+          place: '埼玉熊谷モルタルレコード',
+          comment: '',
+          actor: '中澤のみ',
+          ticketUrl:
+            'https://twitter.com/nakaza_nkz/status/1379723423283179522',
+          fanclubTicketUrl: '',
+          detailPagePath: '',
+          isStreaming: false,
+        },
+        {
+          title: '宮川企画「マイセルフ,ユアセルフ」',
+          dateDisplay: '2021/04/18(日) 14:30',
+          date: new Date(2021, 3, 18),
+          place: 'TSUTAYA O-EAST',
+          comment: '',
+          actor: '松本のみ',
+          ticketUrl: 'https://eplus.jp/miyagawakikaku/',
+          fanclubTicketUrl: '',
+          detailPagePath: '',
+          isStreaming: false,
+        },
+      ],
     }
   },
-}
+  computed: {
+    /**
+     * 今後のライブリスト
+     */
+    futureLives() {
+      const compare = (x, y) => x.date.getTime() - y.date.getTime()
+      // 今日以降のライブを降順に並び替え
+      return this.lives
+        .filter((live) => {
+          return live.date.getTime() >= new Date().getTime()
+        })
+        .sort(compare)
+    },
+  },
+})
 </script>
