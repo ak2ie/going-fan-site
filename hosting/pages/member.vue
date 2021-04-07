@@ -8,11 +8,11 @@
           <li class="text">1978/12/22 生まれ</li>
           <li class="text">ボーカル・ギター・作詞・作曲</li>
         </ul>
-        <v-icon>mdi-twitter</v-icon>
+        <v-icon>{{ icon.mdiTwitter }}</v-icon>
         <a href="https://twitter.com/sou_matsumoto" target="_blank"
           >@sou_matsumoto</a
         ><br />
-        <v-icon>mdi-instagram</v-icon>
+        <v-icon>{{ icon.mdiInstagram }}</v-icon>
         <a href="https://www.instagram.com/sou_matsumoto/" target="_blank"
           >@sou_matsumoto</a
         >
@@ -23,7 +23,7 @@
           <li class="text">1978/12/19 生まれ</li>
           <li class="text">ギター</li>
         </ul>
-        <v-icon>mdi-twitter</v-icon>
+        <v-icon>{{ icon.mdiTwitter }}</v-icon>
         <a href="https://twitter.com/nakaza_nkz" target="_blank">@nakaza_nkz</a
         ><br />
       </div>
@@ -34,7 +34,7 @@
           <li class="text">1978/8/14 生まれ</li>
           <li class="text">ベース</li>
         </ul>
-        <v-icon>mdi-twitter</v-icon>
+        <v-icon>{{ icon.mdiTwitter }}</v-icon>
         <a href="https://twitter.com/satotosato" target="_blank">@satotosato</a
         ><br />
       </div>
@@ -43,5 +43,13 @@
 </template>
 
 <script>
-export default {}
+import { mdiTwitter, mdiInstagram } from '@mdi/js'
+
+export default {
+  data() {
+    return {
+      icon: { mdiTwitter, mdiInstagram },
+    }
+  },
+}
 </script>
