@@ -167,6 +167,18 @@ export default Vue.extend({
           detailPagePath: '',
           isStreaming: false,
         },
+        {
+          title: 'YATSUI FESTIVAL! 2021',
+          dateDisplay: '2021/06/19(土) 11:30',
+          date: new Date(2021, 5, 19),
+          place: 'TSUTAYA O-EAST他',
+          comment: '',
+          actor: 'GOING',
+          ticketUrl: 'https://eplus.jp/yatsuifes/',
+          fanclubTicketUrl: '',
+          detailPagePath: '',
+          isStreaming: true,
+        },
       ],
     }
   },
