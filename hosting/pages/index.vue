@@ -2,42 +2,74 @@
   <v-row>
     <v-col cols="12" md="8" offset-md="2">
       <div class="text-h5">ライブ</div>
-      <v-card class="mt-2">
-        <v-card-title
-          ><nuxt-link to="live/20210403-bokyotokyo"
-            >望郷東京2021〜春旅selection</nuxt-link
-          ><v-spacer></v-spacer
-          ><v-chip color="primary">
-            <v-avatar left><v-icon>mdi-account-circle</v-icon></v-avatar
-            >配信あり</v-chip
-          ></v-card-title
+      <v-card class="mt-2" v-for="(live, index) in futureLives" :key="index">
+        <v-card-title>
+          <nuxt-link
+            :to="live.detailPagePath"
+            class="info--text font-weight-bold"
+            v-if="live.detailPagePath"
+          >
+            {{ live.title }}</nuxt-link
+          >
+          <span v-else>
+            {{ live.title }}
+          </span>
+          <!-- <v-spacer
+            v-if="live.isStreaming || live.actor !== 'GOING'"
+          ></v-spacer> -->
+          <v-chip
+            class="ma-2"
+            color="indigo"
+            text-color="white"
+            v-if="live.isStreaming"
+          >
+            <v-icon left>{{ icon.mdiMonitorCellphone }}</v-icon>
+            配信あり
+          </v-chip>
+          <v-chip
+            class="ma-2"
+            color="indigo"
+            text-color="white"
+            v-if="live.actor !== 'GOING'"
+          >
+            <v-icon left>{{ icon.mdiAccountMultiple }}</v-icon>
+            {{ live.actor }}
+          </v-chip>
+        </v-card-title>
+        <v-card-subtitle
+          >{{ live.dateDisplay }} @{{ live.place }}</v-card-subtitle
         >
-        <v-card-subtitle>2021/04/03(土) 14:00 / 16:30</v-card-subtitle>
+        <v-card-text class="text-subtitle-1">
+          {{ live.comment }}
+        </v-card-text>
         <v-card-actions>
-          <v-btn href="https://eplus.jp/gug/" target="_blank" color="primary"
-            >会場チケット</v-btn
-          ><v-btn
-            href="https://eplus.jp/st-gug/"
+          <v-spacer></v-spacer>
+          <v-btn
+            :href="live.ticketUrl"
             target="_blank"
-            color="success"
+            color="primary"
+            v-if="live.ticketUrl"
+            >会場チケット</v-btn
+          >
+          <v-btn
+            :href="live.streamingUrl"
+            target="_blank"
+            color="primary"
+            v-if="live.streamingUrl"
             >配信チケット</v-btn
           >
-        </v-card-actions>
-      </v-card>
-
-      <v-card class="mt-2">
-        <v-card-title>
-          <nuxt-link to="live/20210505-arakawawatare">
-            荒川わたれ〜2021 in 熊谷</nuxt-link
-          ></v-card-title
-        >
-        <v-card-subtitle>2021/05/05(水・祝) 16:00</v-card-subtitle>
-        <v-card-actions>
-          <v-btn href="https://eplus.jp/gug/" target="_blank" color="primary"
-            >会場チケット</v-btn
+          <v-btn
+            :href="live.fanclubTicketUrl"
+            target="_blank"
+            color="error"
+            v-if="live.fanclubTicketUrl"
+            >ファンクラブ先行チケット</v-btn
           >
         </v-card-actions>
       </v-card>
+      <div class="mt-3">
+        <router-link to="/lives" class="info--text">過去のライブ</router-link>
+      </div>
     </v-col>
 
     <v-col cols="12" md="8" offset-md="2">
@@ -50,7 +82,7 @@
     <v-col cols="12" md="8" offset-md="2">
       <div class="text-h5">SNS</div>
       <div class="text">
-        <v-icon>mdi-twitter</v-icon
+        <v-icon>{{ icon.mdiTwitter }}</v-icon
         ><a href="https://twitter.com/going_twilight" target="_blank"
           >@going_twilight</a
         >
@@ -59,14 +91,110 @@
   </v-row>
 </template>
 
-<script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
+<script lang="ts">
+import { mdiTwitter, mdiMonitorCellphone, mdiAccountMultiple } from '@mdi/js'
+import Vue from 'vue'
 
-export default {
-  components: {
-    Logo,
-    VuetifyLogo,
-  },
+export type Live = {
+  title: String
+  dateDisplay: String
+  date: Date
+  place: String
+  comment: String
+  actor: String
+  ticketUrl: String
+  fanclubTicketUrl: String
+  detailPagePath: String
+  isStreaming: boolean
 }
+
+export type DataType = {
+  icon: any
+  lives: Array<Live>
+}
+
+export default Vue.extend({
+  data(): DataType {
+    return {
+      icon: { mdiTwitter, mdiMonitorCellphone, mdiAccountMultiple },
+      lives: [
+        {
+          title: '【中止】荒川わたれ～2021 in 熊谷',
+          dateDisplay: '2021/05/05（水・祝） 16:00',
+          date: new Date(2021, 4, 5),
+          place: '熊谷八木橋デパート',
+          comment: 'メンバーの地元埼玉凱旋ライブ⇒緊急事態宣言発令のため中止',
+          actor: 'GOING',
+          ticketUrl: '',
+          fanclubTicketUrl: '',
+          detailPagePath: 'live/20210505-arakawawatare',
+          isStreaming: false,
+        },
+        {
+          title: '"with YOU"15th anniversary LIVE!',
+          dateDisplay: '2021/06/26(土) 14:00 / 16:30',
+          date: new Date(2021, 5, 26),
+          place: '下北沢SHELTER',
+          comment: 'ベストアルバム発売15周年ライブ',
+          actor: 'GOING',
+          ticketUrl: '',
+          fanclubTicketUrl: 'https://goingunderground.tokyo/contents/417170',
+          detailPagePath: 'live/20210626-withyou15th',
+          isStreaming: false,
+        },
+        {
+          title: 'クリトリック・リスとナカザタロウ 春の2マン',
+          dateDisplay: '2021/04/10(土) 16:00',
+          date: new Date(2021, 3, 10),
+          place: '埼玉熊谷モルタルレコード',
+          comment: '',
+          actor: '中澤のみ',
+          ticketUrl:
+            'https://twitter.com/nakaza_nkz/status/1379723423283179522',
+          fanclubTicketUrl: '',
+          detailPagePath: '',
+          isStreaming: false,
+        },
+        {
+          title: '宮川企画「マイセルフ,ユアセルフ」',
+          dateDisplay: '2021/04/18(日) 14:30',
+          date: new Date(2021, 3, 18),
+          place: 'TSUTAYA O-EAST',
+          comment: '',
+          actor: '松本のみ',
+          ticketUrl: 'https://eplus.jp/miyagawakikaku/',
+          fanclubTicketUrl: '',
+          detailPagePath: '',
+          isStreaming: false,
+        },
+        {
+          title: 'YATSUI FESTIVAL! 2021',
+          dateDisplay: '2021/06/19(土) 11:30',
+          date: new Date(2021, 5, 19),
+          place: 'TSUTAYA O-EAST他',
+          comment: '',
+          actor: 'GOING',
+          ticketUrl: 'https://eplus.jp/yatsuifes/',
+          fanclubTicketUrl: '',
+          detailPagePath: '',
+          isStreaming: true,
+        },
+      ],
+    }
+  },
+  computed: {
+    /**
+     * 今後のライブリスト
+     */
+    futureLives(): Array<Live> {
+      const compare = (x: Live, y: Live) => x.date.getTime() - y.date.getTime()
+      // 今日以降のライブを降順に並び替え
+      return this.lives
+        .filter((live: Live) => {
+          return live.date.getTime() >= new Date().getTime()
+        })
+        .sort(compare)
+    },
+  },
+})
 </script>

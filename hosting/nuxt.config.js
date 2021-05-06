@@ -14,7 +14,11 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'ロックバンドGOING UNDER GROUNDの非公式ファンサイト',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
@@ -40,6 +44,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/sitemap',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -62,8 +67,20 @@ export default {
         },
       },
     },
+    defaultAssets: {
+      icons: false,
+      font: false,
+    },
+    icons: {
+      iconfont: 'mdiSvg',
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://going-twilight.web.app/',
+  },
 }
