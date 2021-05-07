@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { mdiApps, mdiAccountMultiple, mdiWaveform, mdiMenu } from '@mdi/js'
+import { mdiApps, mdiAccountMultiple, mdiWaveform, mdiMenu } from "@mdi/js";
 
 export default {
   data() {
@@ -45,18 +45,18 @@ export default {
       items: [
         {
           icon: mdiApps,
-          title: 'Home',
-          to: '/',
+          title: "Home",
+          to: "/",
         },
         {
           icon: mdiAccountMultiple,
-          title: 'メンバー',
-          to: '/member',
+          title: "メンバー",
+          to: "/member",
         },
         {
           icon: mdiWaveform,
-          title: 'ライブ',
-          to: '/lives',
+          title: "ライブ",
+          to: "/lives",
         },
         // {
         //   icon: 'mdi-information',
@@ -67,10 +67,10 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'トワイライト',
-    }
+      title: "トワイライト",
+    };
   },
-}
+};
 </script>
 
 <style>
@@ -79,11 +79,8 @@ export default {
    *  Background pattern from Toptal Subtle Patterns
    * ------------------------------------------------- */
   /* https://www.toptal.com/designers/subtlepatterns/dark-sharp-edges/ */
-  background: repeat url('/footer_lodyas.png');
+  background: repeat url("/footer_lodyas.png");
 
-  font-family: 'Open Sans';
-}
-
-.application {
+  font-family: "Open Sans";
 }
 </style>

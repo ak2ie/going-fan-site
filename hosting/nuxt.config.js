@@ -1,4 +1,4 @@
-import colors from 'vuetify/es5/util/colors'
+import colors from "vuetify/es5/util/colors";
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -24,10 +24,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ["@/assets/coreui.scss"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ["@/plugins/axios", "@/plugins/coreui.ts"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -35,16 +35,17 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build',
+    "@nuxt/typescript-build",
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
+    "@nuxtjs/vuetify",
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    "@nuxtjs/sitemap",
+
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
-    '@nuxtjs/sitemap',
+    "@nuxtjs/axios",
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -52,7 +53,7 @@ export default {
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    customVariables: ["~/assets/variables.scss"],
     theme: {
       dark: true,
       themes: {
@@ -72,7 +73,7 @@ export default {
       font: false,
     },
     icons: {
-      iconfont: 'mdiSvg',
+      iconfont: "mdiSvg",
     },
   },
 
@@ -80,7 +81,7 @@ export default {
   build: {},
 
   sitemap: {
-    path: '/sitemap.xml',
-    hostname: 'https://going-twilight.web.app/',
+    path: "/sitemap.xml",
+    hostname: "https://going-twilight.web.app/",
   },
 }
