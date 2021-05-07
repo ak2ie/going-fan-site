@@ -6,21 +6,21 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - トワイライト',
-    title: 'トワイライト',
+    titleTemplate: "%s - トワイライト",
+    title: "トワイライト",
     htmlAttrs: {
-      lang: 'ja',
+      lang: "ja",
     },
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
-        hid: 'description',
-        name: 'description',
-        content: 'ロックバンドGOING UNDER GROUNDの非公式ファンサイト',
+        hid: "description",
+        name: "description",
+        content: "ロックバンドGOING UNDER GROUNDの非公式ファンサイト",
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -84,4 +84,4 @@ export default {
     path: "/sitemap.xml",
     hostname: "https://going-twilight.web.app/",
   },
-}
+};
