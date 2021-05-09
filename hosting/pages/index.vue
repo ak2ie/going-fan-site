@@ -179,6 +179,43 @@ export default Vue.extend({
           detailPagePath: "",
           isStreaming: true,
         },
+        {
+          title: "Sou’s fountain in 「あぼわぁーる」 〜実家で歌う松本素生〜",
+          dateDisplay: "2021/06/05（土） 13:30",
+          date: new Date(2021, 5, 5), // 月は -1 する
+          place: "cafeあぼわぁーる（京都府南丹市）",
+          comment: "松本さんご実家のカフェでのライブ",
+          actor: "松本のみ", // 全員：GOING
+          ticketUrl:
+            "https://select-type.com/ev/?ev=gPvVJbNuQnU&tl=&tl=&eventPageID=",
+          fanclubTicketUrl: "",
+          detailPagePath: "",
+          isStreaming: false,
+        },
+        {
+          title: "群青の花びら",
+          dateDisplay: "2021/06/06（日） 13:30",
+          date: new Date(2021, 5, 6), // 月は -1 する
+          place: "Live House nano（京都府京都市）",
+          comment: "",
+          actor: "松本のみ", // 全員：GOING
+          ticketUrl: "",
+          fanclubTicketUrl: "",
+          detailPagePath: "",
+          isStreaming: false,
+        },
+        // {
+        //   title: "",
+        //   dateDisplay: "",
+        //   date: new Date(), // 月は -1 する
+        //   place: "",
+        //   comment: "",
+        //   actor: "",  // 全員：GOING
+        //   ticketUrl: "",
+        //   fanclubTicketUrl: "",
+        //   detailPagePath: "",
+        //   isStreaming: false,
+        // },
       ],
     };
   },
