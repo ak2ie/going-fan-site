@@ -4,7 +4,7 @@ import ThreadRepository from "@/api/ThreadRepository";
 const repositoryPlugin: Plugin = (context, inject) => {
   // export default function ({$axios}, inject) {
   const api = context.$axios.create({
-    baseURL: "https://asia-northeast1-vue-bbs-b16c3.cloudfunctions.net/app",
+    baseURL: "https://asia-northeast1-going-twilight.cloudfunctions.net/app",
     data: {},
   });
 

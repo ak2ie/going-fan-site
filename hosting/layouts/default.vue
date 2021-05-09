@@ -33,7 +33,13 @@
 </template>
 
 <script>
-import { mdiApps, mdiAccountMultiple, mdiWaveform, mdiMenu } from "@mdi/js";
+import {
+  mdiApps,
+  mdiAccountMultiple,
+  mdiWaveform,
+  mdiMenu,
+  mdiCommentMultiple,
+} from "@mdi/js";
 
 export default {
   data() {
@@ -57,6 +63,11 @@ export default {
           icon: mdiWaveform,
           title: "ライブ",
           to: "/lives",
+        },
+        {
+          icon: mdiCommentMultiple,
+          title: "掲示板",
+          to: "/bbs",
         },
         // {
         //   icon: 'mdi-information',

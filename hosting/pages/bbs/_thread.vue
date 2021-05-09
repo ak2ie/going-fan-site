@@ -226,7 +226,6 @@ export default Vue.extend({
       const result = await this.$threadRepository.getComments(
         this.$route.params.thread
       );
-      console.log(result);
       // タイトル、スレッドの説明を設定
       this.title = result.Title;
       this.description = result.Description;
