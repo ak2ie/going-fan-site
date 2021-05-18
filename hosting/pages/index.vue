@@ -119,11 +119,12 @@ export default Vue.extend({
       icon: { mdiTwitter, mdiMonitorCellphone, mdiAccountMultiple },
       lives: [
         {
-          title: "【中止】荒川わたれ～2021 in 熊谷",
-          dateDisplay: "2021/05/05（水・祝） 16:00",
-          date: new Date(2021, 4, 5),
+          title: "荒川わたれ～2021 in 熊谷",
+          dateDisplay: "2021/07/11（日） 16:00",
+          date: new Date(2021, 6, 11),
           place: "熊谷八木橋デパート",
-          comment: "メンバーの地元埼玉凱旋ライブ⇒緊急事態宣言発令のため中止",
+          comment:
+            "メンバーの地元埼玉凱旋ライブ（緊急事態宣言発令のため開催日変更）",
           actor: "GOING",
           ticketUrl: "",
           fanclubTicketUrl: "",
@@ -137,7 +138,7 @@ export default Vue.extend({
           place: "下北沢SHELTER",
           comment: "ベストアルバム発売15周年ライブ",
           actor: "GOING",
-          ticketUrl: "",
+          ticketUrl: "https://eplus.jp/gug/",
           fanclubTicketUrl: "https://goingunderground.tokyo/contents/417170",
           detailPagePath: "live/20210626-withyou15th",
           isStreaming: false,
@@ -199,7 +200,7 @@ export default Vue.extend({
           place: "Live House nano（京都府京都市）",
           comment: "",
           actor: "松本のみ", // 全員：GOING
-          ticketUrl: "",
+          ticketUrl: "https://eplus.jp/sf/detail/3423950001",
           fanclubTicketUrl: "",
           detailPagePath: "",
           isStreaming: false,

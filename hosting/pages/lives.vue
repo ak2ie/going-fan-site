@@ -4,7 +4,7 @@
       <div class="text-h4">ライブ一覧</div>
 
       <v-simple-table class="mt-3">
-        <template v-slot:default>
+        <template #default>
           <thead>
             <tr>
               <th>タイトル</th>
@@ -35,30 +35,30 @@ export default {
     return {
       lives: [
         {
-          title: '望郷東京2021〜春旅selection',
-          date: '2021/04/03',
-          comment: '',
-          to: 'live/20210403-bokyotokyo',
-        },
-        {
-          title: '荒川わたれ〜2021 in 熊谷',
-          date: '2021/05/05',
-          comment: '地元凱旋ライブ',
-          to: 'live/20210505-arakawawatare',
+          title: "望郷東京2021〜春旅selection",
+          date: "2021/04/03",
+          comment: "",
+          to: "live/20210403-bokyotokyo",
         },
         {
           title: '"with YOU"15th anniversary LIVE!"',
-          date: '2021/06/26',
-          comment: '初ベストアルバム発売15周年記念',
-          to: 'live/20210626-withyou15th',
+          date: "2021/06/26",
+          comment: "初ベストアルバム発売15周年記念",
+          to: "live/20210626-withyou15th",
+        },
+        {
+          title: "荒川わたれ〜2021 in 熊谷",
+          date: "2021/07/11",
+          comment: "地元凱旋ライブ",
+          to: "live/20210505-arakawawatare",
         },
       ],
-    }
+    };
   },
   methods: {
     gotoPage(link) {
-      this.$router.push(link)
+      this.$router.push(link);
     },
   },
-}
+};
 </script>
