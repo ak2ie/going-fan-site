@@ -141,7 +141,7 @@ export default Vue.extend({
           ticketUrl: "https://eplus.jp/gug/",
           fanclubTicketUrl: "https://goingunderground.tokyo/contents/417170",
           detailPagePath: "live/20210626-withyou15th",
-          isStreaming: false,
+          isStreaming: true,
         },
         {
           title: "クリトリック・リスとナカザタロウ 春の2マン",

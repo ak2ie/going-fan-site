@@ -65,7 +65,12 @@
       </div>
 
       <!-------------------- 投稿一覧 -------------------->
-      <div v-for="(comment, index) in comments" :key="index">
+      <v-progress-linear
+        v-if="loading"
+        indeterminate
+        color="teal"
+      ></v-progress-linear>
+      <div v-for="(comment, index) in comments" v-else :key="index">
         <p class="mt-5 mb-1">
           <v-icon class="pr-1">{{ icon.mdiAccount }}</v-icon
           >{{ comment.name }}
@@ -143,6 +148,7 @@ export type DataType = {
    * 投稿処理有無
    */
   processing: boolean;
+  loading: boolean;
 };
 
 export default Vue.extend({
@@ -165,6 +171,7 @@ export default Vue.extend({
       snackbar: false,
       message: "",
       processing: false,
+      loading: false,
     };
   },
   head() {
@@ -173,7 +180,9 @@ export default Vue.extend({
     };
   },
   async mounted() {
+    this.loading = true;
     await this.loadCommentsFromAPI();
+    this.loading = false;
   },
   methods: {
     /**

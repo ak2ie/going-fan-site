@@ -16,7 +16,12 @@
         スレッド作成
       </v-chip>
       <!-------------------- スレッド一覧 -------------------->
-      <div v-for="(thread, index) in threads" :key="index" class="mt-4">
+      <v-progress-linear
+        v-if="loading"
+        indeterminate
+        color="teal"
+      ></v-progress-linear>
+      <div v-for="(thread, index) in threads" v-else :key="index" class="mt-4">
         <router-link :to="'/bbs/' + thread.id" class="text-h4">{{
           thread.title
         }}</router-link>
@@ -119,6 +124,10 @@ export type DataType = {
    * メッセージ本文
    */
   message: string;
+  /**
+   * ローディング中
+   */
+  loading: boolean;
 };
 
 export default Vue.extend({
@@ -140,9 +149,12 @@ export default Vue.extend({
       processing: false,
       snackbar: false,
       message: "",
+      loading: false,
     };
   },
   async mounted() {
+    this.loading = true;
+    // スレッド一覧取得
     const result = await this.$threadRepository.get();
 
     for (const thread of result) {
@@ -151,6 +163,7 @@ export default Vue.extend({
         this.threads.push({ title: titleName, id: thread.Id });
       }
     }
+    this.loading = false;
   },
   methods: {
     /**

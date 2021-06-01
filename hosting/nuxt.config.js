@@ -51,7 +51,9 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
-  loading: "@/components/Loading.vue",
+  loading: {
+    color: "green",
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
