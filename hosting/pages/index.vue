@@ -170,7 +170,7 @@ export default Vue.extend({
         },
         {
           title: "YATSUI FESTIVAL! 2021",
-          dateDisplay: "2021/06/19(土) 11:30",
+          dateDisplay: "2021/06/19(土) 13:30～14:10",
           date: new Date(2021, 5, 19),
           place: "TSUTAYA O-EAST他",
           comment: "",
@@ -201,6 +201,18 @@ export default Vue.extend({
           comment: "",
           actor: "松本のみ", // 全員：GOING
           ticketUrl: "https://eplus.jp/sf/detail/3423950001",
+          fanclubTicketUrl: "",
+          detailPagePath: "",
+          isStreaming: false,
+        },
+        {
+          title: "GFB'21(つくばロックフェス）",
+          dateDisplay: "2021/07/18（日）",
+          date: new Date(2021, 6, 18), // 月は -1 する
+          place: "つくばねオートキャンプ場（茨城県石岡市）",
+          comment: "",
+          actor: "GOING", // 全員：GOING
+          ticketUrl: "http://goosefreshbeat.web.fc2.com/",
           fanclubTicketUrl: "",
           detailPagePath: "",
           isStreaming: false,
