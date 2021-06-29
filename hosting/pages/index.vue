@@ -217,6 +217,18 @@ export default Vue.extend({
           detailPagePath: "",
           isStreaming: false,
         },
+        {
+          title: 'SUMMER\'S RIOT〜"ISSAN"birthday edition',
+          dateDisplay: "2021/08/22（日）",
+          date: new Date(2021, 7, 22), // 月は -1 する
+          place: "下北沢SHELTER",
+          comment: "石原さんのBirthdayライブ",
+          actor: "GOING", // 全員：GOING
+          ticketUrl: "",
+          fanclubTicketUrl: "https://goingunderground.tokyo/contents/437156",
+          detailPagePath: "",
+          isStreaming: false,
+        },
         // {
         //   title: "",
         //   dateDisplay: "",
