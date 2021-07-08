@@ -229,6 +229,18 @@ export default Vue.extend({
           detailPagePath: "",
           isStreaming: false,
         },
+        {
+          title: "Live for the Future vol.1",
+          dateDisplay: "2021/08/02（月）",
+          date: new Date(2021, 7, 2), // 月は -1 する
+          place: "LIVE HOUSE FEVER",
+          comment: "",
+          actor: "GOING", // 全員：GOING
+          ticketUrl: "",
+          fanclubTicketUrl: "",
+          detailPagePath: "",
+          isStreaming: false,
+        },
         // {
         //   title: "",
         //   dateDisplay: "",
